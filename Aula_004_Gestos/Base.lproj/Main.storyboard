@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Aula_004_Gestos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,45 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSb-61-QpY">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="3Ss-Kr-Y9a"/>
+                                    <constraint firstAttribute="height" constant="100" id="PKB-Fq-lt8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="zSb-61-QpY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gue-h4-boD"/>
+                            <constraint firstItem="zSb-61-QpY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zRa-Rm-aG8"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1d1-sj-iMr" appends="YES" id="MbA-vU-Oiy"/>
+                            <outletCollection property="gestureRecognizers" destination="km9-F7-rhZ" appends="YES" id="RwM-h1-FTx"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="minhaView" destination="zSb-61-QpY" id="RN6-4z-6JU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="1d1-sj-iMr">
+                    <connections>
+                        <action selector="moverObj:" destination="BYZ-38-t0r" id="yau-Uu-e23"/>
+                        <outlet property="delegate" destination="zSb-61-QpY" id="6Yz-fq-NUy"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="km9-F7-rhZ">
+                    <connections>
+                        <action selector="habilitarObj:" destination="BYZ-38-t0r" id="U5S-UI-FUT"/>
+                        <outlet property="delegate" destination="zSb-61-QpY" id="jAz-VL-rog"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="278" y="177"/>
         </scene>
     </scenes>
 </document>

@@ -1,25 +1,44 @@
-//
-//  ViewController.swift
-//  Aula_004_Gestos
-//
-//  Created by Swift on 19/01/17.
-//  Copyright © 2017 Swift. All rights reserved.
-//
 
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //MARK: Outlets
+    @IBOutlet weak var minhaView: UIView!
+    @IBOutlet weak var minhaLegenda: UILabel!
+    
+    //MARK: Propriedades
+    var habilitado = false
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        minhaView.backgroundColor = UIColor.gray
+        habilitado = false
+
+    }
+    
+    //MARK: Actions
+    @IBAction func moverObj(_ sender: UIPanGestureRecognizer) {
+        if habilitado == true {
+            minhaView.center = sender.location(in: view)
+
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func habilitarObj(_ sender: UITapGestureRecognizer) {
+        
+        if habilitado == false {
+            minhaView.backgroundColor = UIColor.green
+            habilitado = true
+        } else {
+            minhaView.backgroundColor = UIColor.gray
+            habilitado = false
+        }
+        
     }
-
+    
 
 }
 
